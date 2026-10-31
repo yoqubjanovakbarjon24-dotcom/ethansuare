@@ -1,0 +1,917 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fff;
+    color: #111;
+    font-family: 'Inter', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --black: #111;
+    --white: #fff;
+    --blue: #7da8df;
+    --yellow: #ffbd45;
+    --green: #a6d9d0;
+    --red: #e36c58;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header {
+    width: 100%;
+    height: 85px;
+    padding: 0 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.logo span {
+    font-size: 12px;
+    vertical-align: top;
+}
+
+.nav {
+    display: flex;
+    gap: 35px;
+}
+
+.nav a {
+    font-size: 11px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav a:hover {
+    color: var(--red);
+}
+
+.header-btn {
+    background: var(--black);
+    color: white;
+    padding: 15px 24px;
+    font-size: 11px;
+    border-radius: 3px;
+    transition: .3s;
+}
+
+.header-btn:hover {
+    background: var(--blue);
+    color: var(--black);
+    transform: translateY(-4px);
+}
+
+.hero {
+    min-height: 780px;
+    padding: 45px 9% 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: appear 1s ease both;
+}
+
+.hero-top,
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 10vw, 145px);
+    line-height: .82;
+    font-weight: 600;
+    letter-spacing: -9px;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero-side {
+    padding-top: 110px;
+}
+
+.hero-side p {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.hero-bottom {
+    color: #777;
+}
+
+.brands {
+    padding: 55px 9% 100px;
+    text-align: center;
+}
+
+.brands > p,
+.clients > p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.brand-list,
+.client-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.brand-list h2,
+.client-list h2 {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.about {
+    padding: 120px 10%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 50px;
+    min-height: 450px;
+}
+
+.section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.about-text h2 {
+    font-size: clamp(28px, 4vw, 53px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -2px;
+}
+
+.about-text h2 span {
+    color: var(--blue);
+}
+
+.projects {
+    padding: 80px 9%;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 130px;
+}
+
+.project.reverse {
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.project.reverse .project-info {
+    order: 2;
+}
+
+.project.reverse .project-image {
+    order: 1;
+}
+
+.project-info span {
+    font-size: 11px;
+    color: #888;
+}
+
+.project-info h3 {
+    font-size: clamp(35px, 5vw, 65px);
+    line-height: .95;
+    margin: 25px 0;
+    letter-spacing: -3px;
+}
+
+.project-info p {
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #777;
+}
+
+.project-image {
+    width: 100%;
+    height: 430px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: .7s;
+}
+
+.project-image:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.07);
+}
+
+.more-projects {
+    padding: 120px 9%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 50px;
+}
+
+.project-names a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: clamp(35px, 6vw, 75px);
+    font-weight: 500;
+    letter-spacing: -3px;
+    transition: .4s;
+}
+
+.project-names a span {
+    font-size: 25px;
+    opacity: 0;
+    transition: .3s;
+}
+
+.project-names a:hover {
+    padding-left: 25px;
+    color: var(--red);
+}
+
+.project-names a:hover span {
+    opacity: 1;
+}
+
+.process {
+    padding: 100px 5%;
+    background: #fafafa;
+}
+
+.process-heading {
+    padding-left: 5%;
+    margin-bottom: 70px;
+}
+
+.process-heading > span,
+.stats-heading > span,
+.gallery-heading > span,
+.contact > span {
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.process-heading h2 {
+    font-size: clamp(60px, 9vw, 115px);
+    line-height: .85;
+    letter-spacing: -7px;
+    margin-top: 30px;
+}
+
+.process-heading h2 span,
+.gallery-heading h2 span,
+.faq-heading h2 span {
+    color: var(--red);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.process-card {
+    min-height: 310px;
+    padding: 30px;
+    border: 1px solid #111;
+    position: relative;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.process-card > span {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.process-card h3 {
+    font-size: 28px;
+    margin-top: 65px;
+    letter-spacing: -1px;
+}
+
+.process-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 250px;
+    margin-top: 15px;
+}
+
+.process-card b {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 55px;
+    opacity: .2;
+}
+
+.process-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 8px 8px 0 #111;
+}
+
+.blue {
+    background: var(--blue);
+}
+
+.yellow {
+    background: var(--yellow);
+}
+
+.green {
+    background: var(--green);
+}
+
+.red {
+    background: var(--red);
+}
+
+.dark {
+    background: #111;
+    color: white;
+}
+
+.gallery {
+    padding: 150px 0 120px;
+    overflow: hidden;
+}
+
+.gallery-heading {
+    padding-left: 32%;
+    margin-bottom: 80px;
+}
+
+.gallery-heading h2 {
+    font-size: clamp(80px, 12vw, 155px);
+    line-height: .8;
+    letter-spacing: -10px;
+    margin-top: 30px;
+}
+
+.gallery-images {
+    display: flex;
+    gap: 20px;
+    padding: 0 5%;
+}
+
+.gallery-card {
+    flex: 1;
+    min-width: 0;
+    height: 350px;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s;
+}
+
+.gallery-card:hover {
+    transform: translateY(-20px);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+.card-blue {
+    background: var(--blue);
+}
+
+.card-yellow {
+    background: var(--yellow);
+}
+
+.card-green {
+    background: var(--green);
+}
+
+.card-red {
+    background: var(--red);
+}
+
+.stats {
+    padding: 120px 10%;
+    background: #111;
+    color: white;
+}
+
+.stats-heading h2 {
+    font-size: clamp(65px, 9vw, 115px);
+    line-height: .85;
+    letter-spacing: -7px;
+    margin: 35px 0 90px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.stats-grid div {
+    border-top: 1px solid #555;
+    padding-top: 30px;
+}
+
+.stats-grid h3 {
+    font-size: 65px;
+    color: var(--yellow);
+}
+
+.stats-grid p {
+    font-size: 11px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+.testimonial {
+    padding: 130px 9%;
+}
+
+.testimonial-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid #111;
+    margin-top: 50px;
+}
+
+.testimonial-image {
+    height: 480px;
+    overflow: hidden;
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: .5s;
+}
+
+.testimonial-image:hover img {
+    filter: grayscale(0%);
+}
+
+.testimonial-text {
+    padding: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial-text > span {
+    font-size: 100px;
+    color: var(--blue);
+}
+
+.testimonial-text h2 {
+    font-size: clamp(25px, 3vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+
+.testimonial-text p {
+    font-size: 12px;
+    margin-top: 35px;
+    color: #777;
+}
+
+.clients {
+    padding: 70px 9% 130px;
+    text-align: center;
+}
+
+.client-list h2 {
+    font-size: 22px;
+}
+
+.faq {
+    padding: 120px 9%;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    background: #fafafa;
+}
+
+.faq-heading h2 {
+    font-size: clamp(55px, 7vw, 90px);
+    line-height: .85;
+    letter-spacing: -6px;
+    margin-top: 40px;
+}
+
+.faq-list details {
+    border-bottom: 1px solid #ccc;
+    padding: 25px 0;
+}
+
+.faq-list summary {
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-list summary::after {
+    content: "+";
+    font-size: 25px;
+    font-weight: 400;
+    transition: .3s;
+}
+
+.faq-list details[open] summary::after {
+    content: "−";
+    color: var(--red);
+}
+
+.faq-list details p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+    padding-top: 20px;
+    max-width: 500px;
+}
+
+.contact {
+    padding: 150px 9%;
+    background: var(--blue);
+}
+
+.contact h2 {
+    font-size: clamp(75px, 13vw, 170px);
+    line-height: .78;
+    letter-spacing: -10px;
+    margin: 55px 0;
+}
+
+.contact h2 span {
+    color: white;
+}
+
+.contact a {
+    display: inline-block;
+    background: #111;
+    color: white;
+    padding: 22px 35px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.contact a:hover {
+    background: white;
+    color: #111;
+    transform: translateY(-7px);
+}
+
+.footer {
+    min-height: 130px;
+    padding: 40px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer p,
+.footer > span {
+    font-size: 10px;
+    color: #777;
+    letter-spacing: 1px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero h1 {
+        font-size: 85px;
+        letter-spacing: -6px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .project {
+        gap: 30px;
+    }
+
+    .project-image {
+        height: 320px;
+    }
+
+    .process-card {
+        min-height: 270px;
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial-text {
+        padding: 35px;
+    }
+
+    .faq {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        height: 75px;
+        padding: 0 5%;
+    }
+
+    .nav {
+        gap: 12px;
+    }
+
+    .nav a {
+        font-size: 9px;
+    }
+
+    .header-btn {
+        display: none;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .hero {
+        min-height: 570px;
+        padding: 35px 5%;
+    }
+
+    .hero-top {
+        font-size: 8px;
+    }
+
+    .hero-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(49px, 12vw, 72px);
+        letter-spacing: -4px;
+    }
+
+    .hero-side {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero-side p {
+        font-size: 9px;
+    }
+
+    .hero-bottom {
+        font-size: 8px;
+        gap: 20px;
+    }
+
+    .brands {
+        padding: 50px 5%;
+    }
+
+    .brand-list,
+    .client-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .brand-list h2 {
+        font-size: 19px;
+    }
+
+    .about {
+        padding: 80px 7%;
+    }
+
+    .about-text h2 {
+        font-size: 32px;
+        letter-spacing: -1px;
+    }
+
+    .projects {
+        padding: 50px 6%;
+    }
+
+    .project,
+    .project.reverse {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 90px;
+    }
+
+    .project.reverse .project-info,
+    .project.reverse .project-image {
+        order: initial;
+    }
+
+    .project-image {
+        height: 300px;
+    }
+
+    .project-info h3 {
+        font-size: 55px;
+    }
+
+    .more-projects {
+        padding: 80px 7%;
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .project-names a {
+        font-size: 38px;
+        padding: 18px 0;
+    }
+
+    .process {
+        padding: 80px 5%;
+    }
+
+    .process-heading {
+        padding-left: 2%;
+    }
+
+    .process-heading h2 {
+        font-size: 65px;
+        letter-spacing: -4px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-card {
+        min-height: 250px;
+    }
+
+    .gallery {
+        padding: 100px 0;
+    }
+
+    .gallery-heading {
+        padding-left: 7%;
+    }
+
+    .gallery-heading h2 {
+        font-size: 85px;
+        letter-spacing: -5px;
+    }
+
+    .gallery-images {
+        overflow-x: auto;
+        padding: 0 5% 20px;
+    }
+
+    .gallery-card {
+        min-width: 220px;
+        height: 300px;
+    }
+
+    .stats {
+        padding: 90px 7%;
+    }
+
+    .stats-heading h2 {
+        font-size: 65px;
+        letter-spacing: -4px;
+    }
+
+    .stats-grid h3 {
+        font-size: 45px;
+    }
+
+    .stats-grid p {
+        font-size: 9px;
+    }
+
+    .testimonial {
+        padding: 90px 6%;
+    }
+
+    .testimonial-box {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-image {
+        height: 350px;
+    }
+
+    .testimonial-text {
+        padding: 30px;
+    }
+
+    .clients {
+        padding: 60px 5% 90px;
+    }
+
+    .faq {
+        padding: 90px 7%;
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .faq-heading h2 {
+        font-size: 65px;
+    }
+
+    .faq-list summary {
+        font-size: 11px;
+        gap: 15px;
+    }
+
+    .contact {
+        padding: 100px 7%;
+    }
+
+    .contact h2 {
+        font-size: 75px;
+        letter-spacing: -5px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+}
